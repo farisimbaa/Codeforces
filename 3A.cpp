@@ -9,8 +9,7 @@ int main() {
     string start, end;
     cin >> start >> end;
     
-    if (input % 2 == 0 && input != 2) ans = "YES";
-    else ans = "NO";
+    
  
     cout << ans << endl;
     return 0;
