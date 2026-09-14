@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unordered_map>
+#include <vector>
 using namespace std;
  
 int main() {
@@ -8,20 +9,30 @@ int main() {
  
     int n; cin >> n;
  
-    int highscore = -1;
-    string name, ans;
+    vector<string> names(n);
+    vector<int> points(n);
+
     unordered_map<string, int> scores;
-    int score = 0;
  
     for (int i = 0; i < n; i++) {
-        cin >> name >> score;
- 
-        scores[name] += score;
-        if (scores[name] > highscore) {
-            highscore = scores[name];
-            ans = name;
+        cin >> names[i] >> points[i];
+        scores[names[i]] += points[i];
+    }
+
+    int highscore = -1;
+
+    for (auto& [name, score] : scores) {
+        highscore = max(highscore, score);
+    }
+
+    unordered_map<string, int> current;
+
+    for (int i = 0; i < n; i++) {
+        current[names[i]] += points[i];
+
+        if (current[names[i]] >= highscore && scores[names[i]] == highscore) {
+            cout << names[i] << endl;
+            return 0;
         }
     }
-    cout << ans;
-    return 0;
 }
