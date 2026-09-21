@@ -8,10 +8,19 @@ int main() {
     cin.tie(nullptr);
 
     string input; cin >> input;
+    string target = "hello";
 
-    if (input.contains("hello")) {
-        cout << "YES";
-    } else cout << "NO";
+    int j = 0;
 
+    for (int i = 0; i < input.size(); i++) {
+        if (input[i] == target[j]) j++;
+    }
+
+    if (j == target.size()) {
+        cout << "YES"; 
+        return 0;
+    }
+
+    cout << "NO" << endl;
     return 0;
 }
