@@ -12,7 +12,7 @@
             ],
             "windowsSdkVersion": "10.0.19041.0",
             "cStandard": "c17",
-            "cppStandard": "c++17",
+            "cppStandard": "c++26",
             "intelliSenseMode": "windows-gcc-x64",
             "compilerPath": "C:/msys64/ucrt64/bin/g++.exe"
         }
