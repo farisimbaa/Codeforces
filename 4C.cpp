@@ -5,20 +5,19 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
  
-    string name;
     int n; cin >> n;
-    string ans[n];
+    unordered_map<string, int> count;
 
     for (int i = 0; i < n; i++) {
+        string name;
         cin >> name;
-        for (int i = 0; i < n; i++) {
-            if (name == ans[i]) {
-                //handle duplicate name
-                break;
-            } else {
-                ans[i] = name;
-                break;
-            }
+
+        if (count[name] == 0) {
+            cout << "OK" << endl;
+            count[name] = 1;
+        } else {
+            cout << name << count[name] << endl;
+            count[name]++;
         }
     }
     return 0;
